@@ -24,5 +24,5 @@ public abstract class Piece {
         return this.pieceAlliance;
     }
 
-    public  abstract List<Move> calculateLegalMoves(final Board board);
+    public abstract List<Move> calculateLegalMoves(final Board board);
 }

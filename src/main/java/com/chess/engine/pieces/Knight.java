@@ -9,6 +9,7 @@ import com.chess.engine.Alliance;
 import com.chess.engine.board.Move;
 import com.chess.engine.board.Board;
 import com.chess.engine.board.Tile;
+import com.chess.engine.board.BoardUtils;
 
 import com.chess.engine.pieces.Piece;
 
@@ -34,7 +35,7 @@ public class Knight extends Piece
         {
             candidateDestinationCoordinate = this.piecePosition + currentCandidate;
 
-            if(true /* isValidTileCoordinate */)
+            if( BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate) )
             {
                 final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 
@@ -58,4 +59,3 @@ public class Knight extends Piece
         return ImmutableList.copyOf(legalMoves);
     }
 }
-
