@@ -14,9 +14,7 @@ import com.chess.engine.board.Move.AttackMove;
 import com.chess.engine.board.Move.MajorMove;
 import com.chess.engine.board.BoardUtils;
 
-
 import com.google.common.collect.ImmutableList;
-
 
 public class Knight extends Piece
 {
