@@ -1,5 +1,6 @@
 package com.chess.engine.pieces;
 
+
 import java.util.Collection;
 
 import java.util.List;

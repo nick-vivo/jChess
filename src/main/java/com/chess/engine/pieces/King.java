@@ -1,5 +1,6 @@
 package com.chess.engine.pieces;
 
+
 import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import com.google.common.collect.ImmutableList;
 import com.chess.engine.board.Board;
 import com.chess.engine.board.BoardUtils;
 import com.chess.engine.board.Tile;
+
 
 public class King extends Piece 
 {

@@ -46,7 +46,8 @@ public class Pawn extends Piece
                      (BoardUtils.SEVENTH_ROW[this.piecePosition] && this.getPieceAlliance().isWhite()) ) 
             )
             {
-                final int behindCandidateDestinationCoordinate = this.piecePosition +  this.getPieceAlliance().getDirection() * currentCandidateOffset;
+                //TODO по туториалу  final int behindCandidateDestinationCoordinate = this.piecePosition +  this.getPieceAlliance().getDirection() * 8, но я думаю надо поставить 16
+                final int behindCandidateDestinationCoordinate = this.piecePosition +  this.getPieceAlliance().getDirection() * 8;
                 if (!board.getTile(behindCandidateDestinationCoordinate).isTileOccupied() && !board.getTile(candidateDestinationCoordinate).isTileOccupied())
                 {
                     legalMoves.add(new MajorMove(board, this, behindCandidateDestinationCoordinate));

@@ -8,6 +8,7 @@ import com.chess.engine.Alliance;
 import com.chess.engine.board.Move;
 import com.chess.engine.board.Board;
 
+
 public abstract class Piece {
 
     protected final int piecePosition;

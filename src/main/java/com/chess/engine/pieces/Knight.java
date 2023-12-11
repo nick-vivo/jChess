@@ -16,6 +16,7 @@ import com.chess.engine.board.BoardUtils;
 
 import com.google.common.collect.ImmutableList;
 
+
 public class Knight extends Piece
 {
     private final static int[] CANDIDATE_MOVE_COORDINATES = {-17, -15, -10, -6, 6, 10, 15, 17};

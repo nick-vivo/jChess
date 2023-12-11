@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
 
+
 public class Rook extends Piece
 {
     private static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-8, -1, 1, 8};
