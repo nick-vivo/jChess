@@ -3,14 +3,14 @@ package com.chess.engine.board;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import com.chess.engine.Alliance;
 import com.chess.engine.pieces.*;
-import com.chess.engine.board.Move;
 
 import com.google.common.collect.ImmutableList;
-import com.google.errorprone.annotations.Immutable;
+
 
 public class Board 
 {
@@ -28,7 +28,23 @@ public class Board
         final Collection<Move> blackStandartLegalMoves = calculateLegalMoves(this.blackPieces);
     }
 
-    private Collection<Move> calculateLegalMoves(Collection<Piece> pieces) 
+    @Override
+    public String toString()
+    {
+        StringBuilder builder = new StringBuilder();
+        for(int i = 0; i < BoardUtils.NUM_TILES; ++i)
+        {
+            final String tileText = this.gameBoard.get(i).toString();
+            builder.append(String.format("%3s", tileText));
+            if((i+1) % BoardUtils.NUM_TILES_PER_ROW == 0)
+            {
+                builder.append("\n");
+            }
+        }
+        return builder.toString();
+    }
+
+    private Collection<Move> calculateLegalMoves(Collection<Piece> pieces)  
     {
         final List<Move> legalMoves = new ArrayList<>();
 
@@ -40,7 +56,7 @@ public class Board
         return ImmutableList.copyOf(legalMoves);
     }
 
-    private Collection<Piece> calculateActivePieces(final List<Tile> gameBoard, final Alliance alliance)
+    private static Collection<Piece> calculateActivePieces(final List<Tile> gameBoard, final Alliance alliance)
     {
         final List<Piece> activePieces = new ArrayList<>();
 
@@ -76,10 +92,9 @@ public class Board
         return ImmutableList.copyOf(tiles);
     }
 
-    public static Board createStandartBoard()
-    {
+    public static Board createStandardBoard() {
         final Builder builder = new Builder();
-
+        // Black Layout
         builder.setPiece(new Rook(Alliance.BLACK, 0));
         builder.setPiece(new Knight(Alliance.BLACK, 1));
         builder.setPiece(new Bishop(Alliance.BLACK, 2));
@@ -96,7 +111,7 @@ public class Board
         builder.setPiece(new Pawn(Alliance.BLACK, 13));
         builder.setPiece(new Pawn(Alliance.BLACK, 14));
         builder.setPiece(new Pawn(Alliance.BLACK, 15));
-
+        // White Layout
         builder.setPiece(new Pawn(Alliance.WHITE, 48));
         builder.setPiece(new Pawn(Alliance.WHITE, 49));
         builder.setPiece(new Pawn(Alliance.WHITE, 50));
@@ -113,7 +128,9 @@ public class Board
         builder.setPiece(new Bishop(Alliance.WHITE, 61));
         builder.setPiece(new Knight(Alliance.WHITE, 62));
         builder.setPiece(new Rook(Alliance.WHITE, 63));
-
+        //white to move
+        builder.setMoveMaker(Alliance.WHITE);
+        //build the board
         return builder.build();
     }
 
@@ -122,27 +139,27 @@ public class Board
         Map<Integer, Piece> boardConfig;
         Alliance nextMoveMaker;
 
-        public Builder()
+        public Builder() 
         {
-
+            this.boardConfig = new HashMap<>();
         }
 
-        public Builder setPiece(final Piece piece)
+        public Builder setPiece(final Piece piece) 
         {
             this.boardConfig.put(piece.getPiecePosition(), piece);
             return this;
         }
 
-        public Builder setMoveMaker(final Alliance alliance)
+
+        public Builder setMoveMaker(final Alliance nextMoveMaker) 
         {
-            this.nextMoveMaker = alliance;
+            this.nextMoveMaker = nextMoveMaker;
             return this;
         }
 
-        public Board build()
+        public Board build() 
         {
             return new Board(this);
         }
     }
-
 }
