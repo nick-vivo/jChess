@@ -21,7 +21,7 @@ public class Bishop extends Piece{
  
     private static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-9, -7, 7, 9};
     
-    Bishop(final int piecePosition, final Alliance pieceAlliance)
+    public Bishop(final Alliance pieceAlliance, final int piecePosition)
     {
         super(piecePosition, pieceAlliance);
     }
