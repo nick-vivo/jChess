@@ -19,7 +19,7 @@ public abstract class Player
     
     Player( final Board board,
             final Collection<Move> legalMoves,
-            final Collection<Move> oppoentMoves)
+            final Collection<Move> opponentsMoves)
     {
         this.board = board;
         this.playerKing = establishKing();
@@ -35,6 +35,7 @@ public abstract class Player
                 return (King) piece;
             }
         }
+        throw new RuntimeException("Should not reach here! Not a valid board!!");
     }
 
     public abstract Collection<Piece> getActivePieces();

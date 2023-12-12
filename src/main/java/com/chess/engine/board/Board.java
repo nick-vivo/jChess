@@ -143,6 +143,16 @@ public class Board
         return builder.build();
     }
 
+    public Collection<Piece> getBlackPieces()
+    {
+        return this.blackPieces;
+    }
+
+    public Collection<Piece> getWhitePieces()
+    {
+        return this.blackPieces;
+    }
+
     public static class Builder
     {
         Map<Integer, Piece> boardConfig;
