@@ -23,8 +23,15 @@ public class BlackPlayer extends Player
 		return this.board.getBlackPieces(); 
 	}
 
+	@Override
 	public Alliance getAlliance()
 	{
 		return Alliance.BLACK;
+	}
+
+	@Override
+	public Player getOpponent()
+	{
+		return this.board.whitePlayer();
 	}
 }

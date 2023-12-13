@@ -9,9 +9,7 @@ import java.util.List;
 import com.chess.engine.Alliance;
 import com.chess.engine.pieces.*;
 
-import com.chess.engine.player.WhitePlayer;
-import com.chess.engine.player.BlackPlayer;
-
+import com.chess.engine.player.*;
 import com.google.common.collect.ImmutableList;
 
 
@@ -141,6 +139,16 @@ public class Board
         builder.setMoveMaker(Alliance.WHITE);
         //build the board
         return builder.build();
+    }
+
+    public Player whitePlayer()
+    {
+        return this.whitePlayer;
+    }
+
+    public Player blackPlayer()
+    {
+        return this.blackPlayer;
     }
 
     public Collection<Piece> getBlackPieces()
