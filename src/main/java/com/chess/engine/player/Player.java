@@ -3,6 +3,7 @@ package com.chess.engine.player;
 
 import java.util.Collection;
 
+import com.chess.engine.Alliance;
 import com.chess.engine.board.Board;
 
 import com.chess.engine.pieces.Piece;
@@ -39,4 +40,5 @@ public abstract class Player
     }
 
     public abstract Collection<Piece> getActivePieces();
+    public abstract Alliance getAlliance();
 }

@@ -2,6 +2,7 @@ package com.chess.engine.player;
 
 import java.util.Collection;
 
+import com.chess.engine.Alliance;
 import com.chess.engine.board.Board;
 import com.chess.engine.board.Move;
 
@@ -20,5 +21,10 @@ public class BlackPlayer extends Player
 	public Collection<Piece> getActivePieces()
 	{
 		return this.board.getBlackPieces(); 
+	}
+
+	public Alliance getAlliance()
+	{
+		return Alliance.BLACK;
 	}
 }
