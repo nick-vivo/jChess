@@ -21,6 +21,7 @@ public class Board
 
     private final WhitePlayer whitePlayer;
     private final BlackPlayer blackPlayer;
+    private final Player currentPlayer;
 
     private Board(Builder builder)
     {
@@ -33,6 +34,7 @@ public class Board
 
         this.whitePlayer = new WhitePlayer(this, whiteStandartLegalMoves, blackStandartLegalMoves);
         this.blackPlayer = new BlackPlayer(this, whiteStandartLegalMoves, blackStandartLegalMoves);
+        this.currentPlayer = null;
     }
 
     @Override
@@ -139,6 +141,11 @@ public class Board
         builder.setMoveMaker(Alliance.WHITE);
         //build the board
         return builder.build();
+    }
+
+    public Player currentPlayer()
+    {
+        return this.currentPlayer;
     }
 
     public Player whitePlayer()
